@@ -9,3 +9,4 @@ $appfetch: @plugins::kicad::fetchproj
 $params: "*@plugins::kicad.projout"
 $output: $appfetch($build_app,$project,$params)
 @fs::mvd($output,"./cwmkbuild.zip")
+@git::push(@plugins::githubdesktop.activerepo,"./cwmkbuild.zip","CWMK Push","No Desc")

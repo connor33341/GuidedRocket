@@ -1,0 +1,11 @@
+# CWMK, simple build from kicad project with name from parent dir
+# CWMK is lisenced under MIT
+# https://github.com/connor33341/cwmk/
+$meta_ver: 1.2
+$match_kiapp: @str::mtch.type.swn
+$build_app: "KiCad {$match_kiapp}"
+$project: @str::return(@fs.dir("."))
+$appfetch: @plugins::kicad::fetchproj
+$params: "*@plugins::kicad.projout"
+$output: $appfetch($build_app,$project,$params)
+@fs::mvd($output,"./cwmkbuild.zip")
